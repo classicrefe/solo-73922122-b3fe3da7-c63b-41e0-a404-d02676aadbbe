@@ -1,0 +1,14 @@
+services:
+  scanflow:
+    build: .
+    container_name: scanflow
+    ports:
+      - "8000:8000"
+    volumes:
+      - scanflow-data:/data
+    environment:
+      SCANFLOW_DB_PATH: /data/scanflow.db
+    restart: unless-stopped
+
+volumes:
+  scanflow-data:
